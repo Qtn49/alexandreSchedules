@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <article>
+        <h1>Here's the lesson for today {{ day.date|date('l jS F \\o\\f Y') }}</h1>
+            <h2>The course of today's lessons</h2>
+            <ul>
+                {% for cours in day.cours %}
+                <li><a href="{{ cours.lien }}" >{{ cours.nom }}</a></li>
+                {% endfor %}
+            </ul>
+        <h2>Today's exercices</h2>
+        {% for periode in periodes %}
+            {% for exo in periode.exercices | filter(exo => exo.day == day) %}
+                {% if loop.first %}
+                    <h3>By {{ periode.date|date('h\:ia') }}</h3>
+                {% endif %}
+                <ul>
+                    <li><a href="{{ exo.lien }}">{{ exo.nom }}</a></li>
+                </ul>
+            {% endfor %}
+        {% endfor %}
+        <h2>Book of the week</h2>
+        <a href="{{ asset('resources/') ~ day.book.lien }}" download="Esio Trot">You can download it here</a>
+    </article>
+
+{% endblock %}
