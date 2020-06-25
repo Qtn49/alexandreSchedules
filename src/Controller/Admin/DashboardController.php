@@ -7,6 +7,7 @@ use App\Entity\Cours;
 use App\Entity\Day;
 use App\Entity\Exercice;
 use App\Entity\Periode;
+use App\Entity\Video;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -35,6 +36,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Book', 'fa fa-tags', Book::class);
         yield MenuItem::linkToCrud('Day', 'fa fa-tags', Day::class);
         yield MenuItem::linkToCrud('Cours', 'fa fa-tags', Cours::class);
+        yield MenuItem::linkToCrud('Vidéos', 'fa fa-tags', Video::class);
         yield MenuItem::linkToCrud('Exercice', 'fa fa-tags', Exercice::class);
         yield MenuItem::linkToCrud('Période', 'fa fa-tags', Periode::class);
 
