@@ -42,7 +42,6 @@ class Day
 
     public function __construct()
     {
-        $this->book = new ArrayCollection();
         $this->cours = new ArrayCollection();
         $this->exercices = new ArrayCollection();
     }
@@ -124,4 +123,12 @@ class Day
 
         return $this;
     }
+
+    public function __toString()
+    {
+
+        return strval($this->date->format('d\/m\/y'));
+
+    }
+
 }

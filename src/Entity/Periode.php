@@ -83,4 +83,11 @@ class Periode
         return $this;
     }
 
+    public function __toString()
+    {
+
+        return strval($this->date->format('h\:ia'));
+
+    }
+
 }
