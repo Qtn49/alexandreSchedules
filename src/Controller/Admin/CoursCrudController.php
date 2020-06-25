@@ -21,7 +21,7 @@ class CoursCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
+            IdField::new('id')->hideOnForm(),
             AssociationField::new('day', 'Day'),
             TextField::new('nom', 'Nom'),
             UrlField::new('lien', 'Lien'),

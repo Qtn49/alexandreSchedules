@@ -22,7 +22,7 @@ class ExerciceCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
 
-        $id = IdField::new('id');
+        $id = IdField::new('id')->hideOnForm();
         $day = AssociationField::new('day', 'Day');
         $periode = AssociationField::new('periode', 'Période');
         $nom = TextField::new('nom', 'Nom');

@@ -21,7 +21,7 @@ class DayCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
+            IdField::new('id')->hideOnForm(),
             DateField::new('date', 'Date'),
             AssociationField::new('book', 'Book'),
         ];
