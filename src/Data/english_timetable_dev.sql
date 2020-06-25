@@ -1,21 +1,20 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
--- https://www.phpmyadmin.net/
+-- version 4.2.12deb2+deb8u9
+-- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 23, 2020 at 12:45 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.6
+-- Generation Time: Jun 24, 2020 at 05:59 PM
+-- Server version: 5.5.62-0+deb8u1
+-- PHP Version: 7.4.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `english_timetable_dev`
@@ -27,12 +26,12 @@ SET time_zone = "+00:00";
 -- Table structure for table `book`
 --
 
-CREATE TABLE `book` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `book` (
+`id` int(11) NOT NULL,
   `nom` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `auteur` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `lien` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `book`
@@ -47,12 +46,12 @@ INSERT INTO `book` (`id`, `nom`, `auteur`, `lien`) VALUES
 -- Table structure for table `cours`
 --
 
-CREATE TABLE `cours` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `cours` (
+`id` int(11) NOT NULL,
   `day_id` int(11) DEFAULT NULL,
   `nom` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `lien` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `cours`
@@ -72,11 +71,11 @@ INSERT INTO `cours` (`id`, `day_id`, `nom`, `lien`) VALUES
 -- Table structure for table `day`
 --
 
-CREATE TABLE `day` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `day` (
+`id` int(11) NOT NULL,
   `date` date NOT NULL,
   `book_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `day`
@@ -94,7 +93,7 @@ INSERT INTO `day` (`id`, `date`, `book_id`) VALUES
 -- Table structure for table `doctrine_migration_versions`
 --
 
-CREATE TABLE `doctrine_migration_versions` (
+CREATE TABLE IF NOT EXISTS `doctrine_migration_versions` (
   `version` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `executed_at` datetime DEFAULT NULL,
   `execution_time` int(11) DEFAULT NULL
@@ -121,41 +120,46 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 -- Table structure for table `exercice`
 --
 
-CREATE TABLE `exercice` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `exercice` (
+`id` int(11) NOT NULL,
   `periode_id` int(11) NOT NULL,
   `day_id` int(11) NOT NULL,
   `nom` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `lien` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `exercice`
 --
 
 INSERT INTO `exercice` (`id`, `periode_id`, `day_id`, `nom`, `lien`) VALUES
-(1, 2, 1, 'Present Simple Positive with \'be\'', 'https://www.perfect-english-grammar.com/present-simple-exercise-11.html'),
-(2, 2, 1, 'Present Simple Negative with \'be\'', 'https://www.perfect-english-grammar.com/present-simple-exercise-10.html'),
-(3, 2, 1, 'Present Simple Yes / No Questions with \'be\'', 'https://www.perfect-english-grammar.com/present-simple-exercise-12.html'),
-(4, 2, 1, 'Present Simple \'Wh\' Questions with \'be\'', 'https://www.perfect-english-grammar.com/present-simple-exercise-13.html'),
-(5, 2, 1, 'Present Simple Mixed Exercise 1 with \'be\'', 'https://www.perfect-english-grammar.com/present-simple-exercise-14.html'),
-(6, 2, 1, 'Present Simple Mixed Exercise 2 with \'be\'', 'https://www.perfect-english-grammar.com/present-simple-exercise-15.html'),
+(1, 2, 1, 'Present Simple Positive with ''be''', 'https://www.perfect-english-grammar.com/present-simple-exercise-11.html'),
+(2, 2, 1, 'Present Simple Negative with ''be''', 'https://www.perfect-english-grammar.com/present-simple-exercise-10.html'),
+(3, 2, 1, 'Present Simple Yes / No Questions with ''be''', 'https://www.perfect-english-grammar.com/present-simple-exercise-12.html'),
+(4, 2, 1, 'Present Simple ''Wh'' Questions with ''be''', 'https://www.perfect-english-grammar.com/present-simple-exercise-13.html'),
+(5, 2, 1, 'Present Simple Mixed Exercise 1 with ''be''', 'https://www.perfect-english-grammar.com/present-simple-exercise-14.html'),
+(6, 2, 1, 'Present Simple Mixed Exercise 2 with ''be''', 'https://www.perfect-english-grammar.com/present-simple-exercise-15.html'),
 (7, 4, 1, 'Present Simple Positive 1', 'https://www.perfect-english-grammar.com/present-simple-exercise-1.html'),
 (8, 4, 1, 'Present Simple Positive 2', 'https://www.perfect-english-grammar.com/present-simple-exercise-2.html'),
 (9, 4, 1, 'Present Simple Negative 1', 'https://www.perfect-english-grammar.com/present-simple-exercise-3.html'),
 (10, 4, 1, 'Present Simple Negative 2', 'https://www.perfect-english-grammar.com/present-simple-exercise-4.html'),
 (11, 4, 1, 'Present Simple Yes / No Questions', 'https://www.perfect-english-grammar.com/present-simple-exercise-5.html'),
-(12, 4, 1, 'Present Simple \'Wh\' Questions', 'https://www.perfect-english-grammar.com/present-simple-exercise-6.html'),
+(12, 4, 1, 'Present Simple ''Wh'' Questions', 'https://www.perfect-english-grammar.com/present-simple-exercise-6.html'),
 (13, 2, 2, 'Present Continuous Positive and Negative 1', 'https://www.perfect-english-grammar.com/present-continuous-exercise-1.html'),
 (14, 2, 2, 'Present Continuous Positive and Negative 2', 'https://www.perfect-english-grammar.com/present-continuous-exercise-2.html'),
-(15, 2, 2, 'Present Continuous \'Wh\' and \'Yes / No\' Questions 1', 'https://www.perfect-english-grammar.com/present-continuous-exercise-3.html'),
-(16, 2, 2, 'Present Continuous \'Wh\' and \'Yes / No\' Questions 2', 'https://www.perfect-english-grammar.com/present-continuous-exercise-4.html'),
+(15, 2, 2, 'Present Continuous ''Wh'' and ''Yes / No'' Questions 1', 'https://www.perfect-english-grammar.com/present-continuous-exercise-3.html'),
+(16, 2, 2, 'Present Continuous ''Wh'' and ''Yes / No'' Questions 2', 'https://www.perfect-english-grammar.com/present-continuous-exercise-4.html'),
 (17, 4, 2, 'Present Continuous Mixed Exercise 1', 'https://www.perfect-english-grammar.com/present-continuous-exercise-5.html'),
 (18, 4, 2, 'Present Continuous Mixed Exercise 2', 'https://www.perfect-english-grammar.com/present-continuous-exercise-6.html'),
 (19, 4, 2, 'Present Continuous Mixed Exercise 3', 'https://www.perfect-english-grammar.com/present-continuous-exercise-7.html'),
 (20, 1, 3, 'Choose the Present Simple or Present Continuous Exercise 1', 'https://www.perfect-english-grammar.com/present-simple-present-continuous-1.html'),
 (21, 1, 3, 'Choose the Present Simple or Present Continuous Exercise 2', 'https://www.perfect-english-grammar.com/present-simple-present-continuous-2.html'),
-(22, 1, 3, 'Choose the Present Simple or Present Continuous Exercise 3', 'https://www.perfect-english-grammar.com/present-simple-present-continuous-3.html');
+(22, 1, 3, 'Choose the Present Simple or Present Continuous Exercise 3', 'https://www.perfect-english-grammar.com/present-simple-present-continuous-3.html'),
+(23, 4, 3, 'Present Perfect Positive', 'https://www.perfect-english-grammar.com/present-perfect-exercise-1.html'),
+(24, 4, 3, 'Present Perfect Negative', 'https://www.perfect-english-grammar.com/present-perfect-exercise-2.html'),
+(25, 4, 3, 'Present Perfect Questions', 'https://www.perfect-english-grammar.com/present-perfect-exercise-3.html'),
+(26, 4, 3, 'Present Perfect All Forms Mixed Exercise 1', 'https://www.perfect-english-grammar.com/present-perfect-exercise-4.html'),
+(27, 4, 3, 'Present Perfect All Forms Mixed Exercise 2', 'https://www.perfect-english-grammar.com/present-perfect-exercise-5.html');
 
 -- --------------------------------------------------------
 
@@ -163,10 +167,10 @@ INSERT INTO `exercice` (`id`, `periode_id`, `day_id`, `nom`, `lien`) VALUES
 -- Table structure for table `periode`
 --
 
-CREATE TABLE `periode` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `periode` (
+`id` int(11) NOT NULL,
   `date` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `periode`
@@ -189,41 +193,37 @@ INSERT INTO `periode` (`id`, `date`) VALUES
 -- Indexes for table `book`
 --
 ALTER TABLE `book`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `cours`
 --
 ALTER TABLE `cours`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `IDX_FDCA8C9C9C24126` (`day_id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `IDX_FDCA8C9C9C24126` (`day_id`);
 
 --
 -- Indexes for table `day`
 --
 ALTER TABLE `day`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `IDX_E5A0299016A2B381` (`book_id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `IDX_E5A0299016A2B381` (`book_id`);
 
 --
 -- Indexes for table `doctrine_migration_versions`
 --
 ALTER TABLE `doctrine_migration_versions`
-  ADD PRIMARY KEY (`version`);
+ ADD PRIMARY KEY (`version`);
 
 --
 -- Indexes for table `exercice`
 --
 ALTER TABLE `exercice`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `IDX_E418C74DF384C1CF` (`periode_id`),
-  ADD KEY `IDX_E418C74D9C24126` (`day_id`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `lien` (`lien`(180)), ADD KEY `IDX_E418C74DF384C1CF` (`periode_id`), ADD KEY `IDX_E418C74D9C24126` (`day_id`);
 
 --
 -- Indexes for table `periode`
 --
 ALTER TABLE `periode`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -233,32 +233,27 @@ ALTER TABLE `periode`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `cours`
 --
 ALTER TABLE `cours`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `day`
 --
 ALTER TABLE `day`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `exercice`
 --
 ALTER TABLE `exercice`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
-
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT for table `periode`
 --
 ALTER TABLE `periode`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- Constraints for dumped tables
 --
@@ -267,21 +262,20 @@ ALTER TABLE `periode`
 -- Constraints for table `cours`
 --
 ALTER TABLE `cours`
-  ADD CONSTRAINT `FK_FDCA8C9C9C24126` FOREIGN KEY (`day_id`) REFERENCES `day` (`id`);
+ADD CONSTRAINT `FK_FDCA8C9C9C24126` FOREIGN KEY (`day_id`) REFERENCES `day` (`id`);
 
 --
 -- Constraints for table `day`
 --
 ALTER TABLE `day`
-  ADD CONSTRAINT `FK_E5A0299016A2B381` FOREIGN KEY (`book_id`) REFERENCES `book` (`id`);
+ADD CONSTRAINT `FK_E5A0299016A2B381` FOREIGN KEY (`book_id`) REFERENCES `book` (`id`);
 
 --
 -- Constraints for table `exercice`
 --
 ALTER TABLE `exercice`
-  ADD CONSTRAINT `FK_E418C74D9C24126` FOREIGN KEY (`day_id`) REFERENCES `day` (`id`),
-  ADD CONSTRAINT `FK_E418C74DF384C1CF` FOREIGN KEY (`periode_id`) REFERENCES `periode` (`id`);
-COMMIT;
+ADD CONSTRAINT `FK_E418C74D9C24126` FOREIGN KEY (`day_id`) REFERENCES `day` (`id`),
+ADD CONSTRAINT `FK_E418C74DF384C1CF` FOREIGN KEY (`periode_id`) REFERENCES `periode` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

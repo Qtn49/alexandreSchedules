@@ -35,7 +35,7 @@ class Book
     private $lien;
 
     /**
-     * @ORM\OneToMany(targetEntity=day::class, mappedBy="book")
+     * @ORM\OneToMany(targetEntity=Day::class, mappedBy="book")
      */
     private $day;
 

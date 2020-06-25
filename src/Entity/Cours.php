@@ -28,7 +28,7 @@ class Cours
     private $lien;
 
     /**
-     * @ORM\ManyToOne(targetEntity=day::class, inversedBy="cours")
+     * @ORM\ManyToOne(targetEntity=Day::class, inversedBy="cours")
      */
     private $day;
 

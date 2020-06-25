@@ -31,7 +31,7 @@ class ExerciceController extends AbstractController
     public function exercice (DayRepository $dayRepository, PeriodeRepository $periodeRepository) : Response {
 
         $day = $dayRepository->findBy(array('date' => new \DateTime()))[0];
-//        $day = $dayRepository->find(4);
+//        $day = $dayRepository->find(1);
 
         return $this->render('day/activities.html.twig', [
             'day' => $day,

@@ -1,3 +1,3 @@
 RewriteEngine On
 RewriteRule ^/?$ /alexandreSchedules/public
-RedirectMatch /public/(?!index.php)day$ /alexandreSchedules/public/index.php/day
+#RedirectMatch /public/(?!index.php)day$ /alexandreSchedules/public/index.php/day

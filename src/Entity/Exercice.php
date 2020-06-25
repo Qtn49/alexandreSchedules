@@ -30,7 +30,7 @@ class Exercice
     private $lien;
 
     /**
-     * @ORM\ManyToOne(targetEntity=day::class, inversedBy="exercices")
+     * @ORM\ManyToOne(targetEntity=Day::class, inversedBy="exercices")
      * @ORM\JoinColumn(nullable=false)
      */
     private $day;

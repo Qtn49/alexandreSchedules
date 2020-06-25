@@ -7,7 +7,7 @@
             <h2>The course of today's lessons</h2>
             <ul>
                 {% for cours in day.cours %}
-                <li><a href="{{ cours.lien }}" >{{ cours.nom }}</a></li>
+                <li><a href="{{ cours.lien }}" target="_blank" >{{ cours.nom }}</a></li>
                 {% endfor %}
             </ul>
         <h2>Today's exercices</h2>
@@ -17,7 +17,7 @@
                     <h3>By {{ periode.date|date('h\:ia') }}</h3>
                 {% endif %}
                 <ul>
-                    <li><a href="{{ exo.lien }}">{{ exo.nom }}</a></li>
+                    <li><a href="{{ exo.lien }}" target="_blank">{{ exo.nom }}</a></li>
                 </ul>
             {% endfor %}
         {% endfor %}
