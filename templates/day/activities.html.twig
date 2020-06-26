@@ -2,6 +2,8 @@
 
 {% block body %}
 
+    {{ parent() }}
+
     <article>
         <h1>Here's the lesson for today {{ day.date|date('l jS F \\o\\f Y') }}</h1>
             <h2>The course of today's lessons</h2>
