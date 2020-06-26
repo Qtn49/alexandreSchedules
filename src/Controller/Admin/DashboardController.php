@@ -8,6 +8,7 @@ use App\Entity\Day;
 use App\Entity\Exercice;
 use App\Entity\Periode;
 use App\Entity\Video;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;

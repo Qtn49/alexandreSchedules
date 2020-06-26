@@ -3,6 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Day;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
@@ -17,6 +19,13 @@ class DayCrudController extends AbstractCrudController
         return Day::class;
     }
 
+    public function configureActions(Actions $actions): Actions
+    {
+
+        return $actions
+            ->setPermissions([Action::NEW => 'ROLE_ADMIN', Action::DELETE => 'ROLE_ADMIN', Action::EDIT => 'ROLE_ADMIN']);
+
+    }
 
     public function configureFields(string $pageName): iterable
     {
